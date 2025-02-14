@@ -1,3 +1,18 @@
 import { Routes } from '@angular/router';
+import { PatientListComponent } from './pacientes/patient-list/patient-list.component';
+import { EnterPatientComponent } from './pacientes/enter-patient/enter-patient.component';
+import { AssignBedComponent } from './pacientes/assign-bed/assign-bed.component';
+import { AssignBedDetailComponent } from './pacientes/assign-bed/assign-bed-detail/assign-bed-detail.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', redirectTo: 'pacientes', pathMatch: 'full' },
+  { path: 'pacientes', component: PatientListComponent },
+  { path: 'registrar', component: EnterPatientComponent },
+  { path: 'registrar/:id', component: EnterPatientComponent }, // ✅ Ruta con parámetro ID
+
+  // ✅ Nuevas rutas para asignar cama
+  { path: 'asignar-cama', component: AssignBedComponent }, 
+  { path: 'asignar-cama/detalle/:id', component: AssignBedDetailComponent }, // Con parámetro ID
+
+  { path: '**', redirectTo: 'pacientes' }
+];

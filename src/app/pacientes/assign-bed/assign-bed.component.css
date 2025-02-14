@@ -1,0 +1,63 @@
+/* 🔹 Contenedor principal: Centra todo */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ Centra todo */
+    justify-content: center;
+}
+
+/* 🔹 Contenedor de las camas: 2 filas de 5 camas */
+.bed-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* ✅ 2 filas de 5 camas */
+    gap: 12px; /* 🔥 Espacio entre camas */
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 🔹 Estilo para cada cama */
+.bed-icon {
+    background-color: white;
+    border: 2px solid black;
+    padding: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    width: 50px; /* ✅ Tamaño uniforme */
+    height: 50px; /* ✅ Tamaño uniforme */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔹 Efecto hover: Celeste y con efecto de agrandado */
+.bed-icon:hover {
+    background-color: #87CEFA; /* 🔥 Celeste al pasar el mouse */
+    transform: scale(1.1); /* 🔥 Se agranda un poco */
+}
+
+/* 🔹 Cuando se selecciona una cama */
+.bed-icon.selected {
+    background-color: yellow;
+    transform: scale(1.1); /* 🔥 Mantiene el tamaño agrandado */
+}
+
+/* 🔹 Botón "Asignar Cama" mejorado */
+.assign-bed-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+/* 🔹 Efecto hover en el botón */
+.assign-bed-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

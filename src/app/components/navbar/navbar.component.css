@@ -1,0 +1,20 @@
+.navbar {
+    background-color: #0056b3 !important; /* Azul oscuro */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.navbar a:hover {
+    background-color: #003d82; /* Azul más oscuro al pasar el mouse */
+}

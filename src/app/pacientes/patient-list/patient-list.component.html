@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>Lista de Pacientes</h2>
+
+  <!-- Mensaje cuando no hay pacientes -->
+  <p *ngIf="!patients?.length" class="alert alert-warning">No hay pacientes registrados.</p>
+
+  <table class="table" *ngIf="patients?.length">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre Completo</th>
+        <th>RUT</th>
+        <th>Edad</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Fecha Nacimiento</th>
+        <th>Género</th>
+        <th>Dirección</th>
+        <th>Comuna</th>
+        <th>Región</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let paciente of patients">
+        <td>{{ paciente?.id }}</td>
+        <td>{{ paciente?.primerNombre }} {{ paciente?.apellidoPaterno }}</td>
+        <td>{{ paciente?.rut }}</td>
+        <td>{{ paciente?.edad }}</td>
+        <td>{{ paciente?.telefono }}</td>
+        <td>{{ paciente?.email }}</td>
+        <td>{{ paciente?.fechaNacimiento }}</td>
+        <td>{{ paciente?.genero }}</td>
+        <td>{{ paciente?.direccion }}</td>
+        <td>{{ paciente?.comuna }}</td>
+        <td>{{ paciente?.region }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editPatient(paciente?.id!)">Editar</button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deletePatient(paciente?.id!)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
