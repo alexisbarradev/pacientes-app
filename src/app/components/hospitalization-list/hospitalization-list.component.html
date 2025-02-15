@@ -1,0 +1,23 @@
+<div class="hospitalization-container">
+  <h2 class="section-title">Lista de Hospitalizaciones</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID Paciente</th>
+        <th>ID Cama</th>
+        <th>Motivo de Ingreso</th>
+        <th>Fecha de Ingreso</th>
+        <th>Sala</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of hospitalizations">
+        <td>{{ h.paciente }}</td>
+        <td>{{ h.cama }}</td>
+        <td>{{ h.motivoIngreso }}</td>
+        <td>{{ h.fechaIngreso }}</td>
+        <td>{{ h.sala }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
