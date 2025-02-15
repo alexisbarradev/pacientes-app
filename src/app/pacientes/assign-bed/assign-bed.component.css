@@ -1,63 +1,87 @@
-/* 🔹 Contenedor principal: Centra todo */
 .container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* ✅ Centra todo */
-    justify-content: center;
-}
-
-/* 🔹 Contenedor de las camas: 2 filas de 5 camas */
-.bed-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* ✅ 2 filas de 5 camas */
-    gap: 12px; /* 🔥 Espacio entre camas */
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-/* 🔹 Estilo para cada cama */
-.bed-icon {
-    background-color: white;
-    border: 2px solid black;
-    padding: 12px;
-    font-size: 24px;
-    cursor: pointer;
+    gap: 10px;
+    padding: 15px;
+    background: #f8f9fa;
     border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
-    width: 50px; /* ✅ Tamaño uniforme */
-    height: 50px; /* ✅ Tamaño uniforme */
+}
+
+.form-group {
     display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.bed-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* ✅ 5 camas por fila */
+    gap: 10px;
+    justify-content: center;
+}
+
+.bed-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid #4CAF50;
+    background-color: white;
+    color: #4CAF50;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-/* 🔹 Efecto hover: Celeste y con efecto de agrandado */
-.bed-icon:hover {
-    background-color: #87CEFA; /* 🔥 Celeste al pasar el mouse */
-    transform: scale(1.1); /* 🔥 Se agranda un poco */
-}
-
-/* 🔹 Cuando se selecciona una cama */
+/* ✅ Asegura que solo la cama seleccionada cambie de color */
 .bed-icon.selected {
-    background-color: yellow;
-    transform: scale(1.1); /* 🔥 Mantiene el tamaño agrandado */
+    background-color: #2196F3 !important;
+    color: white !important;
+    border-color: #1976D2 !important;
 }
 
-/* 🔹 Botón "Asignar Cama" mejorado */
+/* ✅ Evita que todas las camas se vuelvan azules */
+.bed-icon:not(.selected) {
+    background-color: white;
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+/* ✅ Ocupadas */
+.bed-icon.occupied {
+    background-color: #FF5733 !important;
+    color: white !important;
+    cursor: not-allowed;
+    border-color: #C62828;
+}
+
 .assign-bed-button {
-    background-color: #007bff;
+    background: #4CAF50;
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-/* 🔹 Efecto hover en el botón */
-.assign-bed-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+.assign-bed-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
