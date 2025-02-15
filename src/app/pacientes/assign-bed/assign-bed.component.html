@@ -1,34 +1,60 @@
 <div class="container">
-    <h2>Hospitalización</h2>
+    <h2>🛏️ <b>Hospitalización</b></h2>
     <p>Seleccione una cama haciendo clic en ella.</p>
 
     <div class="form-container">
-        <label for="paciente">Seleccione un Paciente:</label>
-        <select id="paciente" [(ngModel)]="selectedPatient">
-            <option *ngFor="let paciente of pacientes" [value]="paciente.id">
-                {{ paciente.rut }} - {{ paciente.primerNombre }} {{ paciente.apellidoPaterno }}
-            </option>
-        </select>
-    </div>
-    <br>
-    <div class="bed-container">
-        <div *ngFor="let cama of camasDisponibles">
-            <button
-                class="bed-icon"
-                [class.selected]="selectedBed === cama"
-                (click)="seleccionarCama(cama)"
-                [disabled]="cama.ocupada"
-            >
-                🛏️
-            </button>
+        <div class="form-group">
+            <label for="paciente">👤 Seleccione un Paciente:</label>
+            <select id="paciente" [(ngModel)]="selectedPatient">
+                <option *ngFor="let paciente of pacientes" [value]="paciente.id">
+                    {{ paciente.rut }} - {{ paciente.primerNombre }} {{ paciente.apellidoPaterno }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="motivo">🔗 Motivo de Ingreso:</label>
+            <select id="motivo" [(ngModel)]="motivoIngreso">
+                <option *ngFor="let motivo of motivoIngresoOptions" [value]="motivo">
+                    {{ motivo }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="fecha">📅 Fecha de Ingreso:</label>
+            <input type="date" id="fecha" [(ngModel)]="fechaIngreso">
+        </div>
+        
+        <!--div class="form-group">
+            <label for="fecha">📅 Fecha de Ingreso:</label>
+            <input type="date" id="fecha" formControlName="fechaIngreso">
+        </div-->
+        
+
+        <div class="form-group">
+            <label>📁 Sala:</label>
+            <input type="text" [value]="selectedSala" disabled>
         </div>
     </div>
 
-    <div class="button-container">
-        <button class="assign-bed-button" (click)="asignarCama()" [disabled]="!selectedPatient || !selectedBed">
-            Asignar Cama
+    <h3>Seleccione una Cama:</h3>
+    
+    <div class="bed-grid">
+        <button
+            *ngFor="let cama of camasDisponibles"
+            class="bed-icon"
+            [class.selected]="selectedBed?.id === cama.id"
+            [class.occupied]="cama.ocupada"
+            (click)="seleccionarCama(cama)"
+            [disabled]="cama.ocupada">
+            🛏️ <br> <span>{{ cama.id }}</span> 
         </button>
     </div>
+
+    <button class="assign-bed-button" (click)="asignarCama()" [disabled]="!selectedPatient || !selectedBed">
+        ✅ Asignar Cama
+    </button>
 
     <p *ngIf="mensaje">{{ mensaje }}</p>
 </div>
