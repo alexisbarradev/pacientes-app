@@ -8,6 +8,7 @@
         <th>Motivo de Ingreso</th>
         <th>Fecha de Ingreso</th>
         <th>Sala</th>
+        <th>Acciones</th> <!-- Nueva columna para el botón -->
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,16 @@
         <td>{{ h.motivoIngreso }}</td>
         <td>{{ h.fechaIngreso }}</td>
         <td>{{ h.sala }}</td>
+        <td class="text-center">
+          <!-- antiguo: button class="btn btn-success">Frecuencia</button-->
+          <!-- Llama a la función cuando se hace clic -->
+          <button class="btn btn-success" (click)="startFrequency(h.paciente)">Frecuencia</button>
+
+
+          <button class="btn btn-warning">Alerta Respiratoria</button>
+
+        </td>
+        
       </tr>
     </tbody>
   </table>

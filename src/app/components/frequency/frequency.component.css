@@ -1,0 +1,33 @@
+.frequency-container {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  color: lime;
+  text-align: center;
+}
+
+.title {
+  color: red;
+  font-size: 2.5rem;
+  text-shadow: 0 0 20px red;
+}
+
+.current-value {
+  font-size: 2rem;
+  color: lime;
+  margin-bottom: 10px;
+}
+
+canvas {
+  border: 3px solid lime;
+  box-shadow: 0 0 20px lime;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

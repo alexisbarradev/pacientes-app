@@ -1,0 +1,10 @@
+<div class="frequency-container">
+  <h2 class="title">Frecuencia del Paciente {{ patientId }}</h2>
+  
+  <!-- 🎯 Mostrando el valor en tiempo real -->
+  <h3 class="current-value">Frecuencia Actual: {{ currentValue }} bpm</h3>
+  
+  <canvas id="frequencyChart"></canvas>
+
+  <button (click)="goBack()">Volver</button>
+</div>
