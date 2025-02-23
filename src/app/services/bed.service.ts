@@ -36,5 +36,17 @@ export class BedService {
       })
     );
   }
+
+  // Método para desasignar cama
+unassignBed(bedId: number): Observable<any> {
+  console.log(`Desasignando cama con ID: ${bedId}`); // Log para verificar la cama a desasignar
+  return this.http.put(`${this.apiUrl}/desasignar/${bedId}`, null).pipe(
+    map(response => {
+      console.log('Respuesta al desasignar cama:', response); // Log de la respuesta del backend
+      return response;
+    })
+  );
+}
+
 }
 

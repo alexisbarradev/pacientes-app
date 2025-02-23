@@ -4,7 +4,8 @@ import { EnterPatientComponent } from './pacientes/enter-patient/enter-patient.c
 import { AssignBedComponent } from './pacientes/assign-bed/assign-bed.component';
 import { AssignBedDetailComponent } from './pacientes/assign-bed/assign-bed-detail/assign-bed-detail.component';
 import { HospitalizationListComponent } from './components/hospitalization-list/hospitalization-list.component'; // ✅ Importa el nuevo componente
-
+// se conecta con el componente de frecuencia
+import { FrequencyComponent } from './components/frequency/frequency.component'; // ✅ Importa el nuevo componente
 
 export const routes: Routes = [
   { path: '', redirectTo: 'pacientes', pathMatch: 'full' },
@@ -19,6 +20,8 @@ export const routes: Routes = [
   // ✅ Ruta para visualizar la lista de hospitalizaciones
   { path: 'hospitalizaciones', component: HospitalizationListComponent },
 
+  // ✅ Nueva Ruta para mostrar la frecuencia
+  { path: 'frecuencia/:id', component: FrequencyComponent },
 
   { path: '**', redirectTo: 'pacientes' }
 ];
